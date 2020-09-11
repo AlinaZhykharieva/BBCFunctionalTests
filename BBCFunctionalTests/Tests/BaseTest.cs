@@ -1,16 +1,14 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace BBCFunctionalTests
 {
     public class BaseTest
     {
         public IWebDriver driver;
-        private string BBC_URL = "https://www.bbc.com";
+        private readonly string BBC_URL = "https://www.bbc.com";
 
         [SetUp]
         public void Initialize()
@@ -47,6 +45,27 @@ namespace BBCFunctionalTests
         public SearchPage GetSearchPage()
         {
             return new SearchPage(GetDriver());
+        }
+        public SportPage GetSportPage() 
+        {
+            return new SportPage(GetDriver());
+        }
+        public FootballPage GetFootballPage()
+        {
+            return new FootballPage(GetDriver());
+        }
+        
+        public ScoresAndFixturesPage GetScoresAndFixturesPage()
+        {
+            return new ScoresAndFixturesPage(GetDriver());
+        }
+        public ChampionshipPage GetChampionshipPage() 
+        {
+            return new ChampionshipPage(GetDriver());
+        }
+        public DetailMatchPage GetDetailMatchPage() 
+        {
+            return new DetailMatchPage(GetDriver());
         }
     }
     

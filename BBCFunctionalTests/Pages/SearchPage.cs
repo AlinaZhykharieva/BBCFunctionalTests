@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using SeleniumExtras.PageObjects;
+
 
 namespace BBCFunctionalTests
 {
@@ -11,7 +10,8 @@ namespace BBCFunctionalTests
         {
 
         }
-        private IWebElement TitleArticle => driver.FindElement(By.XPath("//ul[@class='css-1lb37cz-Stack e1y4nx260']/li[1]//a"));
+        [FindsBy(How = How.XPath, Using = "//ul[@class='css-1lb37cz-Stack e1y4nx260']/li[1]//a")]
+        private IWebElement TitleArticle;
 
 
         public string GetTitleArticle()
