@@ -1,4 +1,6 @@
 ﻿
+using BBCFunctionalTests.Driver;
+using BBCFunctionalTests.Pages;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
@@ -39,9 +41,11 @@ namespace BBCFunctionalTests
 
        
 
-        public void ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
+        public NewsPage ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
         {
-            ButtonCloseOnPopUpWithProposeOfSabscription.Click();
+       
+           ButtonCloseOnPopUpWithProposeOfSabscription.Click();
+            return new NewsPage(DriverInstance.Current);
         }
 
         public string GetActualTitleOfMainArticleOnHomePage()
@@ -52,26 +56,34 @@ namespace BBCFunctionalTests
         {
             return secondaryArticleTitle;
         }
-        
-        public string GetTagName() 
+
+        public string GetTagName()
         {
             return TagName.Text;
+
         }
 
-        public void SendKeysInSearchInputOnNewsPage()
+        public SearchPage SendKeysInSearchInputOnNewsPage()
         {
+            WaitForLoad(DriverInstance.Current);
             SearchInputOnNewsPage.SendKeys(GetTagName());
+            WaitForLoad(DriverInstance.Current);
+            SearchButton.Click();
+            WaitForLoad(DriverInstance.Current);
+            return new SearchPage(DriverInstance.Current);
         }
         
 
-        public void ClickOnSearchButton() 
-        {
-            SearchButton.Click();
-        }
+        //public void ClickOnSearchButton() 
+        //{
+        //    SearchButton.Click();
+        //}
 
-        public void ClickOnMenuCoronavirus()
+        public CoronavirusPage ClickOnMenuCoronavirus()
         {
+            WaitForLoad(DriverInstance.Current);
             MenuCoronavirus.Click();
+            return new CoronavirusPage(DriverInstance.Current);
         }
 
 

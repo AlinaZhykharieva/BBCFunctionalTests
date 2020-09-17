@@ -3,26 +3,14 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.PageObjects;
 using System;
 using OpenQA.Selenium.Chrome;
-
-
+using BBCFunctionalTests.Driver;
 
 namespace BBCFunctionalTests
 {
      public class BasePage
      {
-        //private static IWebDriver driver;
-        //public static IWebDriver Driver
-        //{
-        //    get
-        //    {
-        //        if (driver == null)
-        //        {
-        //            driver = new ChromeDriver();
-        //        }
-        //        return driver;
-        //    }
-        //}
-        public IWebDriver driver;
+
+        private IWebDriver driver;
         public BasePage(IWebDriver driver)
         {
             this.driver = driver;

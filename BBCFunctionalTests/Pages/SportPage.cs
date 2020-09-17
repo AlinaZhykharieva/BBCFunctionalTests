@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using BBCFunctionalTests.Driver;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 
@@ -16,15 +17,18 @@ namespace BBCFunctionalTests
         [FindsBy(How = How.XPath, Using = "//button[@aria-label='close']")]
         private IWebElement ButtonCloseOnPopUpWithProposeOfSabscription;
 
-        public void ClickOnMenuFootball() 
+        public FootballPage ClickOnMenuFootball() 
         {
             MenuFootball.Click();
-            WaitForLoad(driver, 15);
+            WaitForLoad(DriverInstance.Current);
+            return new FootballPage(DriverInstance.Current);
         }
-        public void ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
+        public SportPage ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
         {
             ButtonCloseOnPopUpWithProposeOfSabscription.Click();
-            WaitForLoad(driver, 15);
+            WaitForLoad(DriverInstance.Current);
+            return new SportPage(DriverInstance.Current);
+            
         }
 
     }

@@ -1,34 +1,26 @@
 ﻿using BBCFunctionalTests.Driver;
-using NUnit.Framework;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
+using TechTalk.SpecFlow;
 
-
-namespace BBCFunctionalTests
+namespace BBCFunctionalTests.Hooks
 {
-    public class BaseTest
+    [Binding]
+    class Hooks
     {
-        
-
-       
-
         private readonly string BBC_URL = "https://www.bbc.com";
-
-        [SetUp]
-        public  void Initialize()
+        [BeforeScenario]
+        public void Initialize()
         {
             DriverInstance.Init();
             DriverInstance.Current.Url = BBC_URL;
-          
+
 
         }
-        [TearDown]
+        [AfterScenario]
         public void CleanUp()
         {
             DriverInstance.Current.Close();
 
         }
-        
+
     }
-    
 }

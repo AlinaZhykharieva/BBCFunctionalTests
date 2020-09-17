@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using BBCFunctionalTests.Driver;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace BBCFunctionalTests
@@ -13,10 +14,11 @@ namespace BBCFunctionalTests
         [FindsBy(How = How.XPath, Using = "//a[@data-stat-title='Scores & Fixtures']")]
         private IWebElement MenuScoresAndFixturesOnFootballPage;
 
-        public void ClickOnMenuScoresAndFixturesOnFootballPage()
+        public ScoresAndFixturesPage ClickOnMenuScoresAndFixturesOnFootballPage()
         {
             MenuScoresAndFixturesOnFootballPage.Click();
-            WaitForLoad(driver, 15);
+            WaitForLoad(DriverInstance.Current);
+            return new ScoresAndFixturesPage(DriverInstance.Current);
         }
 
     }

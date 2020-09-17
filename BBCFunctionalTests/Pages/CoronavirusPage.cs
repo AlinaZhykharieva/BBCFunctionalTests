@@ -1,9 +1,10 @@
-﻿using OpenQA.Selenium;
+﻿using BBCFunctionalTests.Driver;
+using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
 namespace BBCFunctionalTests.Pages
 {
-    class CoronavirusPage:BasePage
+    public class CoronavirusPage:BasePage
     {
         public CoronavirusPage(IWebDriver driver): base (driver)
         {
@@ -14,9 +15,11 @@ namespace BBCFunctionalTests.Pages
         private IWebElement LinkYourCoronavirusStories;
 
 
-        public void ClickLinkYourCoronavirusStories() 
+        public YourCoronavirusStoriePage ClickLinkYourCoronavirusStories() 
         {
+            WaitForLoad(DriverInstance.Current);
             LinkYourCoronavirusStories.Click();
+            return new YourCoronavirusStoriePage(DriverInstance.Current);
         }
 
     }

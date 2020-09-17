@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using System;
 using SeleniumExtras.PageObjects;
-
+using BBCFunctionalTests.Driver;
 
 namespace BBCFunctionalTests
 {
@@ -38,9 +38,12 @@ namespace BBCFunctionalTests
         
         public Score GetScore(string team1, string team2)
         {
-            ChampionshipPage championshipPage = new ChampionshipPage(driver);
-                      
-            if (team1.Equals(championshipPage.GetActualFirstTeam()) && team2.Equals(championshipPage.GetActualSecondTeam()))
+            ImplicityWait(20);
+            IWebElement ActualFirstTeam = DriverInstance.Current.FindElement(By.XPath("//span[text()[contains(.,'" + team1 + "')]]"));
+            IWebElement ActualSecondTeam = DriverInstance.Current.FindElement(By.XPath("//span[text()[contains(.,'" + team2 + "')]]"));
+            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+            
+            if (team1.Contains(ActualFirstTeam.Text) && team2.Contains(ActualSecondTeam.Text))
             {
                
                 return new Score(championshipPage.GetActualNumberOfGoalsScoredByTheFirstTeam(), championshipPage.GetActualNumberOfGoalsScoredByTheSecondTeam());
@@ -48,8 +51,8 @@ namespace BBCFunctionalTests
             }
             else
             {
-                WaitForLoad(driver, 10);
-                throw new ArgumentException("Please, Enter valid name of teams", championshipPage.GetActualSecondTeam());
+                WaitForLoad(DriverInstance.Current, 10);
+                throw new ArgumentException("Please, Enter valid name of teams");
             }
 
 

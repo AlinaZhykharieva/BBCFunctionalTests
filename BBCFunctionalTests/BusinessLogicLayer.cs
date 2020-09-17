@@ -1,23 +1,25 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using BBCFunctionalTests.Driver;
+
 
 namespace BBCFunctionalTests
 {
-    class BusinessLogicLayer
+    class BusinessLogicLayer:BaseTest
     {
-        private readonly IWebDriver driver;
-        public BusinessLogicLayer(IWebDriver driver)
+        
+        
+        public ScoresAndFixturesPage GoToTheFootballScoresAndFixtures()
         {
-            this.driver = driver;
+            HomePage homePage = new HomePage(DriverInstance.Current);
+            homePage.ClickOnMenuSportInNavBar().ClickOnButtonCloseOnPopUpWithProposeOfSabscription().ClickOnMenuFootball().ClickOnMenuScoresAndFixturesOnFootballPage();
+            return new ScoresAndFixturesPage(DriverInstance.Current);
+
         }
-        public void GoToTheFootballScoresAndFixtures()
+        public void GoToHowToShareWithBBCNews() 
         {
-            new HomePage(driver).ClickOnMenuSportInNavBar();
-            new SportPage(driver).ClickOnButtonCloseOnPopUpWithProposeOfSabscription();
-            new SportPage(driver).ClickOnMenuFootball();
-            new FootballPage(driver).ClickOnMenuScoresAndFixturesOnFootballPage();
+            HomePage homePage = new HomePage(DriverInstance.Current);
+            homePage.ClickOnMenuNews().ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
+            .ClickOnMenuCoronavirus().ClickLinkYourCoronavirusStories().ClickOnLinkHowToShareWithBBCNews();
+             
 
         }
     }
