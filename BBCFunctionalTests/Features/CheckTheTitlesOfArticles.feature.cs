@@ -106,11 +106,64 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.When("I go to the New Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I go to the News Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
  testRunner.Then("the title of main article should be \"England region faces restrictions as cases s" +
                         "pike\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check the secondary article titles on News page")]
+        [NUnit.Framework.CategoryAttribute("smoke")]
+        [NUnit.Framework.CategoryAttribute("test")]
+        public virtual void CheckTheSecondaryArticleTitlesOnNewsPage()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "smoke",
+                    "test"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the secondary article titles on News page", null, tagsOfScenario, argumentsOfScenario);
+#line 11
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 12
+ testRunner.When("I go to the News Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Titles"});
+                table1.AddRow(new string[] {
+                            "Hopes fade in search for Beirut blast survivor"});
+                table1.AddRow(new string[] {
+                            "Professor who posed as black \'won\'t teach classes\'"});
+                table1.AddRow(new string[] {
+                            "Earth\'s \'lost species\' only the tip of the iceberg"});
+                table1.AddRow(new string[] {
+                            "Trump refuses to condemn Russia over Navalny\""});
+                table1.AddRow(new string[] {
+                            "Drone filmed dropping suspected cannabis over city"});
+#line 13
+ testRunner.Then("the titles of secondary articles should be:", ((string)(null)), table1, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

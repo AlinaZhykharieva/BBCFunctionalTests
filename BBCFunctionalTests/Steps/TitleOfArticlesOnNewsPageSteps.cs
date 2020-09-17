@@ -27,7 +27,7 @@ namespace BBCFunctionalTests.Steps
         [Then(@"the titles of secondary articles should be:")]
         public void ThenTheTitlesOfSecondaryArticlesShouldBe(Table table)
         {
-            List<string> expectedsecondaryTitles = (List<string>)(from row in table.Rows select row["Titles"]);
+            IEnumerable<string> expectedsecondaryTitles = from row in table.Rows select row["Titles"];
 
             NewsPage newsPage = new NewsPage(DriverInstance.Current);
             List<string> secondaryTitlesString = new List<string>();
@@ -37,9 +37,9 @@ namespace BBCFunctionalTests.Steps
                 string textsecondaryTitlesString = webElement.Text;
                 secondaryTitlesString.Add(textsecondaryTitlesString);
             }
-            for (int i = 0; i < secondaryTitlesString.Count; i++)
+            foreach (var titles in expectedsecondaryTitles)
             {
-                Assert.IsTrue(secondaryTitlesString.Contains(expectedsecondaryTitles[i]));
+                Assert.IsTrue(secondaryTitlesString.Contains(titles));
             }
             
 
