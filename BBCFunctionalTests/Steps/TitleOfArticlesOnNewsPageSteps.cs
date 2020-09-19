@@ -15,7 +15,7 @@ namespace BBCFunctionalTests.Steps
         public void WhenIGoToTheNewsPage()
         {
             HomePage homePage = new HomePage(DriverInstance.Current);
-            homePage.ClickOnMenuNews();
+            homePage.ClickOnMenuNews().ClickOnButtonCloseOnPopUpWithProposeOfSabscription();
         }
         
         [Then(@"the title of main article should be ""(.*)""")]
@@ -44,8 +44,21 @@ namespace BBCFunctionalTests.Steps
             
 
         }
-        
-        
+        [When(@"Entere the text of the Category link of the headline article in Search bar")]
+        public void WhenEntereTheTextOfTheCategoryLinkOfTheHeadlineArticleInSearchBar()
+        {
+            NewsPage newsPage = new NewsPage(DriverInstance.Current);
+            newsPage.SendKeysInSearchInputOnNewsPage();
+        }
+
+        [Then(@"the title of article should be ""(.*)""")]
+        public void ThenTheTitleOfArticleShouldBe(string expectedTitleArticle)
+        {
+            SearchPage searchPage = new SearchPage(DriverInstance.Current);
+            Assert.IsTrue(searchPage.GetTitleArticle().Contains(expectedTitleArticle));
+        }
+ 
+
 
 
 

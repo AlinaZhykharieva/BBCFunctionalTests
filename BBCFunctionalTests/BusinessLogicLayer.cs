@@ -7,18 +7,19 @@ namespace BBCFunctionalTests
     {
         
         
-        public ScoresAndFixturesPage GoToTheFootballScoresAndFixtures()
+        public void GoToTheFootballScoresAndFixtures()
         {
             HomePage homePage = new HomePage(DriverInstance.Current);
             homePage.ClickOnMenuSportInNavBar().ClickOnButtonCloseOnPopUpWithProposeOfSabscription().ClickOnMenuFootball().ClickOnMenuScoresAndFixturesOnFootballPage();
-            return new ScoresAndFixturesPage(DriverInstance.Current);
+         
 
         }
         public void GoToHowToShareWithBBCNews() 
         {
             HomePage homePage = new HomePage(DriverInstance.Current);
-            homePage.ClickOnMenuNews().ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
-            .ClickOnMenuCoronavirus().ClickLinkYourCoronavirusStories().ClickOnLinkHowToShareWithBBCNews();
+            NewsPage newsPage = new NewsPage(DriverInstance.Current);
+            homePage.ClickOnMenuNews().ClickOnButtonCloseOnPopUpWithProposeOfSabscription();
+            newsPage.ClickOnMenuCoronavirus().ClickLinkYourCoronavirusStories().ClickOnLinkHowToShareWithBBCNews();
              
 
         }

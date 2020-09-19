@@ -28,11 +28,11 @@ namespace BBCFunctionalTests
         }
 
 
-        public ChampionshipPage ClickOnButtonSearchOnScoresAndFixturesPage()
+        public void ClickOnButtonSearchOnScoresAndFixturesPage()
         {
             ButtonSearchOnScoresAndFixturesPage.Click();
             WaitForLoad(DriverInstance.Current, 30);
-            return new ChampionshipPage(DriverInstance.Current);
+          
             
         }
 

@@ -42,22 +42,23 @@ namespace BBCFunctionalTests
             
         //}
 
-        public int GetActualNumberOfGoalsScoredByTheFirstTeam()
+        public int GetActualNumberOfGoalsScoredByTheFirstTeam(string nameOfTheFirstTeam, string nameOfSecondTeam)
         {
+            //span[ starts-with( descendant-or-self::*/text(),'Ayr' ) ]//ancestor::a/article//span[contains(text(),'Alloa')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--home']//span[@class='sp-c-fixture__number sp-c-fixture__number--home sp-c-fixture__number--ft']
             WaitForLoad(DriverInstance.Current);
-            return int.Parse(ActualNumberOfGoalsScoredByTheFirstTeam.Text);
-           
+            return int.Parse(DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + nameOfSecondTeam + "') ]//ancestor::a/article//span[contains(text(),'" + nameOfTheFirstTeam + "')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--home']")).Text);
+
         }
 
-        public int GetActualNumberOfGoalsScoredByTheSecondTeam() 
-        {
+        public int GetActualNumberOfGoalsScoredByTheSecondTeam(string nameOfTheFirstTeam, string nameOfSecondTeam )
+        {   
             WaitForLoad(DriverInstance.Current);
-            return int.Parse(ActualNumberOfGoalsScoredByTheSecondTeam.Text);
+            return int.Parse(DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + nameOfTheFirstTeam + "') ]//ancestor::a/article//span[contains(text(),'" + nameOfSecondTeam + "')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--away']//span[@class='sp-c-fixture__number sp-c-fixture__number--away sp-c-fixture__number--ft']")).Text);
         }
-        public DetailMatchPage ClickLinkOfMatch(string linkForNumberOfMatch) 
+        public DetailMatchPage ClickLinkOfMatch(string firstTeam, string secondTeam) 
         {
-
-            DriverInstance.Current.FindElement(By.XPath("//a[contains(@href, '" + linkForNumberOfMatch + "')]")).Click();
+            
+            DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + firstTeam + "' ) ]//ancestor::a/article//span[contains(text(),'" + secondTeam + "')]//ancestor::a")).Click();
             WaitForLoad(DriverInstance.Current);
             return new DetailMatchPage(DriverInstance.Current);
         }

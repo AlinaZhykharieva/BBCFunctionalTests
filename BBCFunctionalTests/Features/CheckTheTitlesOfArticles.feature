@@ -1,11 +1,13 @@
 ﻿Feature: Title of articles on news page
 	In order to make sure the headlines on the news page are correct
-	Iwant to compare them with expected
+	I want to compare them with expected
+
+
 
 @smoke test
 Scenario: Check the title of main article on News page
 	When I go to the News Page
-	Then the title of main article should be "England region faces restrictions as cases spike"
+	Then the title of main article should be "Europe races to slow Covid-19 surge"
 
 @smoke test
 Scenario: Check the secondary article titles on News page
@@ -18,6 +20,8 @@ Scenario: Check the secondary article titles on News page
          | Trump refuses to condemn Russia over Navalny"       |	  
 		 |Drone filmed dropping suspected cannabis over city   |
         
-			  
-			  
+Scenario:Check the name of the article on Search page			  
+	When  I go to the News Page	
+	And   Entere the text of the Category link of the headline article in Search bar
+	Then  the title of article should be "Cities of Europe"
 			 

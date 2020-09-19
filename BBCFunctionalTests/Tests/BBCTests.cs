@@ -50,15 +50,15 @@ namespace BBCFunctionalTests
             }
 
         }
-        [Test]
+        //[Test]
 
-        public void CheckTheNameOfTheArticleOnSearchedPage()
-        {
-            string expectedTitleArticle = "BBC OS Conversations: Coronavirus: Children with special needs";
-            HomePage homePage = new HomePage(DriverInstance.Current);
-            Assert.IsTrue(homePage.ClickOnMenuNews().SendKeysInSearchInputOnNewsPage().GetTitleArticle().Contains(expectedTitleArticle));
+        //public void CheckTheNameOfTheArticleOnSearchedPage()
+        //{
+        //    string expectedTitleArticle = "BBC OS Conversations: Coronavirus: Children with special needs";
+        //    HomePage homePage = new HomePage(DriverInstance.Current);
+        //    Assert.IsTrue(homePage.ClickOnMenuNews().SendKeysInSearchInputOnNewsPage().GetTitleArticle().Contains(expectedTitleArticle));
 
-        }
+        //}
 
         private Dictionary<string, string> StoryToBBCWithNameFieldBlank = new Dictionary<string, string>()
         {
@@ -127,121 +127,121 @@ namespace BBCFunctionalTests
             Assert.IsTrue(ListErrorMessages.Any());
         }
 
-        [Test]
-        public void CheckThatTeamScoresDisplayCorrectlyScottishChampionship()
-        {
-            string dateOfMatch = "2020-02";
-            string keyWordForSearchScottishChampionship = "Scottish Championship";
-            string expectredFirstTeam = "Alloa Athletic";
-            string expectedSecondTeam = "Ayr United";
-            string linkForNumberOfMatchScottishChampionship = "51595117";
-            Score score = new Score(0, 2);
+        //[Test]
+        //public void CheckThatTeamScoresDisplayCorrectlyScottishChampionship()
+        //{
+        //    string dateOfMatch = "2020-02";
+        //    string keyWordForSearchScottishChampionship = "Scottish Championship";
+        //    string expectredFirstTeam = "Alloa Athletic";
+        //    string expectedSecondTeam = "Ayr United";
+        //    string linkForNumberOfMatchScottishChampionship = "51595117";
+        //    Score score = new Score(0, 2);
 
-            ScoreBoard board = new ScoreBoard(DriverInstance.Current);
-            BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
-            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
-            businessLogicLayer.GoToTheFootballScoresAndFixtures()
-           .SendKeyWordForSearchChampionship(keyWordForSearchScottishChampionship).ClickOnButtonSearchOnScoresAndFixturesPage()
-           .ChoosePeriodMonthAndYear(dateOfMatch);
-            Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
+        //    ScoreBoard board = new ScoreBoard(DriverInstance.Current);
+        //    BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        //    ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+        //    businessLogicLayer.GoToTheFootballScoresAndFixtures()
+        //   .SendKeyWordForSearchChampionship(keyWordForSearchScottishChampionship).ClickOnButtonSearchOnScoresAndFixturesPage()
+        //   .ChoosePeriodMonthAndYear(dateOfMatch);
+        //    Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
 
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
-            Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualSecondTeamOnMatchDetailPage());
-        }
-        [Test]
-        public void CheckThatTeamScoresDisplayCorrectlyChampionshipEuropaLeague()
-        {
-            string dateOfMatch = "2020-08";
-            string keyWordForSearchEuropaLeague = "Europa League";
-            string expectredFirstTeam = "The New Saints";
-            string expectedSecondTeam = "MSK Zilina";
-            string linkForNumberOfMatchEuropaLeague = "53876175";
-            Score score = new Score(3, 1);
-            ScoreBoard board = new ScoreBoard(DriverInstance.Current);
-            BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
-            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualSecondTeamOnMatchDetailPage());
+        //}
+        //[Test]
+        //public void CheckThatTeamScoresDisplayCorrectlyChampionshipEuropaLeague()
+        //{
+        //    string dateOfMatch = "2020-08";
+        //    string keyWordForSearchEuropaLeague = "Europa League";
+        //    string expectredFirstTeam = "The New Saints";
+        //    string expectedSecondTeam = "MSK Zilina";
+        //    string linkForNumberOfMatchEuropaLeague = "53876175";
+        //    Score score = new Score(3, 1);
+        //    ScoreBoard board = new ScoreBoard(DriverInstance.Current);
+        //    BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        //    ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
 
-            businessLogicLayer.GoToTheFootballScoresAndFixtures()
-            .SendKeyWordForSearchChampionship(keyWordForSearchEuropaLeague).ClickOnButtonSearchOnScoresAndFixturesPage()
-            .ChoosePeriodMonthAndYear(dateOfMatch);
-            Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
-            Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualSecondTeamOnMatchDetailPage());
+        //    businessLogicLayer.GoToTheFootballScoresAndFixtures()
+        //    .SendKeyWordForSearchChampionship(keyWordForSearchEuropaLeague).ClickOnButtonSearchOnScoresAndFixturesPage()
+        //    .ChoosePeriodMonthAndYear(dateOfMatch);
+        //    Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchEuropaLeague).GetActualSecondTeamOnMatchDetailPage());
 
-        }
-        [Test]
-        public void CheckThatTeamScoresDisplayCorrectlyScottishLeagueCup()
-        {
-            string dateOfMatch = "2019-11";
-            string keyWordForSearchScottishLeagueCup = "Scottish League Cup";
-            string expectredFirstTeam = "Rangers";
-            string expectedSecondTeam = "Heart of Midlothian";
-            string linkForNumberOfMatchScottishLeagueCup = "50228402";
-            Score score = new Score(3, 0);
+        //}
+        //[Test]
+        //public void CheckThatTeamScoresDisplayCorrectlyScottishLeagueCup()
+        //{
+        //    string dateOfMatch = "2019-11";
+        //    string keyWordForSearchScottishLeagueCup = "Scottish League Cup";
+        //    string expectredFirstTeam = "Rangers";
+        //    string expectedSecondTeam = "Heart of Midlothian";
+        //    string linkForNumberOfMatchScottishLeagueCup = "50228402";
+        //    Score score = new Score(3, 0);
 
-            ScoreBoard board = new ScoreBoard(DriverInstance.Current);
-            BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
-            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
-            businessLogicLayer.GoToTheFootballScoresAndFixtures()
-           .SendKeyWordForSearchChampionship(keyWordForSearchScottishLeagueCup).ClickOnButtonSearchOnScoresAndFixturesPage()
-           .ChoosePeriodMonthAndYear(dateOfMatch);
-            Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
-            Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualSecondTeamOnMatchDetailPage());
+        //    ScoreBoard board = new ScoreBoard(DriverInstance.Current);
+        //    BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        //    ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+        //    businessLogicLayer.GoToTheFootballScoresAndFixtures()
+        //   .SendKeyWordForSearchChampionship(keyWordForSearchScottishLeagueCup).ClickOnButtonSearchOnScoresAndFixturesPage()
+        //   .ChoosePeriodMonthAndYear(dateOfMatch);
+        //    Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishLeagueCup).GetActualSecondTeamOnMatchDetailPage());
 
-        }
-        [Test]
-        public void CheckThatTeamScoresDisplayCorrectlyWomensWorldCup()
-        {
-            string dateOfMatch = "2019-07-07";
-            string keyWordForSearchWomensWorldCup = "Womens World Cup";
-            string expectredFirstTeam = "USA";
-            string expectedSecondTeam = "Netherlands";
-            string linkForNumberOfMatchWomensWorldCup = "48897032";
-            Score score = new Score(2, 0);
+        //}
+        //[Test]
+        //public void CheckThatTeamScoresDisplayCorrectlyWomensWorldCup()
+        //{
+        //    string dateOfMatch = "2019-07-07";
+        //    string keyWordForSearchWomensWorldCup = "Womens World Cup";
+        //    string expectredFirstTeam = "USA";
+        //    string expectedSecondTeam = "Netherlands";
+        //    string linkForNumberOfMatchWomensWorldCup = "48897032";
+        //    Score score = new Score(2, 0);
 
-            ScoreBoard board = new ScoreBoard(DriverInstance.Current);
-            BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
-            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
-            businessLogicLayer.GoToTheFootballScoresAndFixtures()
+        //    ScoreBoard board = new ScoreBoard(DriverInstance.Current);
+        //    BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        //    ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+        //    businessLogicLayer.GoToTheFootballScoresAndFixtures()
 
-           .SendKeyWordForSearchChampionship(keyWordForSearchWomensWorldCup).ClickOnButtonSearchOnScoresAndFixturesPage()
-           .ChoosePeriodMonthAndYear(dateOfMatch);
-            Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
-            Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualSecondTeamOnMatchDetailPage());
+        //   .SendKeyWordForSearchChampionship(keyWordForSearchWomensWorldCup).ClickOnButtonSearchOnScoresAndFixturesPage()
+        //   .ChoosePeriodMonthAndYear(dateOfMatch);
+        //    Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchWomensWorldCup).GetActualSecondTeamOnMatchDetailPage());
 
-        }
-        [Test]
-        public void CheckThatTeamScoresDisplayCorrectlyClubWorldCup()
-        {
-            string dateOfMatch = "2019-12";
-            string keyWordForSearchScottishChampionship = "Club World Cup";
-            string expectredFirstTeam = "Liverpool";
-            string expectedSecondTeam = "Flamengo";
-            string linkForNumberOfMatchClubWorldCup = "50869633";
-            Score score = new Score(1, 0);
-            ScoreBoard board = new ScoreBoard(DriverInstance.Current);
-            BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
-            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+        //}
+        //[Test]
+        //public void CheckThatTeamScoresDisplayCorrectlyClubWorldCup()
+        //{
+        //    string dateOfMatch = "2019-12";
+        //    string keyWordForSearchScottishChampionship = "Club World Cup";
+        //    string expectredFirstTeam = "Liverpool";
+        //    string expectedSecondTeam = "Flamengo";
+        //    string linkForNumberOfMatchClubWorldCup = "50869633";
+        //    Score score = new Score(1, 0);
+        //    ScoreBoard board = new ScoreBoard(DriverInstance.Current);
+        //    BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
+        //    ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
 
-            businessLogicLayer.GoToTheFootballScoresAndFixtures()
-            .SendKeyWordForSearchChampionship(keyWordForSearchScottishChampionship).ClickOnButtonSearchOnScoresAndFixturesPage()
-            .ChoosePeriodMonthAndYear(dateOfMatch);
-            Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
-            Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualSecondTeamOnMatchDetailPage());
-        }
+        //    businessLogicLayer.GoToTheFootballScoresAndFixtures()
+        //    .SendKeyWordForSearchChampionship(keyWordForSearchScottishChampionship).ClickOnButtonSearchOnScoresAndFixturesPage()
+        //    .ChoosePeriodMonthAndYear(dateOfMatch);
+        //    Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualFirstTeamOnMatchDetailPage());
+        //    Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchClubWorldCup).GetActualSecondTeamOnMatchDetailPage());
+        //}
 
     } 
 }
