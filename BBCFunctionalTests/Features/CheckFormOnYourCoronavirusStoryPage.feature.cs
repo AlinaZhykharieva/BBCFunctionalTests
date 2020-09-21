@@ -81,6 +81,7 @@ namespace BBCFunctionalTests.Features
         [NUnit.Framework.TestCaseAttribute("My story", "", "Yes", "Yes", null)]
         [NUnit.Framework.TestCaseAttribute("", "Alina", "Yes", "Yes", null)]
         [NUnit.Framework.TestCaseAttribute("My story", "Alina", "Yes", "No", null)]
+        [NUnit.Framework.TestCaseAttribute("My story", "Alina", "No", "Yes", null)]
         public virtual void UserCanNotSubmitAQuestionToBBCWithNameFieldBlank(string tellUsYourStory_, string name, string iAmOver16YearsOld, string iAcceptThe, string[] exampleTags)
         {
             string[] @__tags = new string[] {

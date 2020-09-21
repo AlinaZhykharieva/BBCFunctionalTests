@@ -32,31 +32,37 @@ namespace BBCFunctionalTests.Steps
 
         }
 
-        [Then(@"the score from which the teams ""(.*)"" and ""(.*)"" played should be ""(.*)""")]
-        public void ThenTheScoreFromWhichTheTeamsAndPlayedShouldBe(string expectredFirstTeam, string expectedSecondTeam, Int32 scoreFirstTeam, Int32 scoreSecondTem )
+        [Then(@"the score from which the teams ""(.*)"" and ""(.*)"" played should be ""(.*)"" ""(.*)""")]
+        public void ThenTheScoreFromWhichTheTeamsAndPlayedShouldBe(string expectedFirstTeam, string expectedSecondTeam, Int32 scoreFirstTeam, Int32 scoreSecondTem )
         {
             ScoreBoard scoreBoard = new ScoreBoard(DriverInstance.Current);
             Score score = new Score(scoreFirstTeam, scoreSecondTem);
-            Assert.AreEqual(scoreBoard.GetScore(expectredFirstTeam, expectedSecondTeam), score);
+            Assert.AreEqual(scoreBoard.GetScore(expectedFirstTeam, expectedSecondTeam), score);
            
         }
 
-        [Then(@"go to page where details of this match")]
-        public void ThenGoToPageWhereDetailsOfThisMatch()
+        [Then(@"go to page where the teams ""(.*)"" and ""(.*)"" details of match")]
+        public void ThenGoToPageWhereTheTeamsAndDetailsOfMatch(string actualFirstTeam, string actualSecondTeam)
         {
-            ScenarioContext.Current.Pending();
+            ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
+            championshipPage.ClickLinkOfMatch(actualFirstTeam, actualSecondTeam);
         }
 
-        [Then(@"the names of teams should be as expected")]
-        public void ThenTheNamesOfTeamsShouldBeAsExpected()
+        [Then(@"the names of teams should be as expected ""(.*)"" and ""(.*)""")]
+        public void ThenTheNamesOfTeamsShouldBeAsExpectedAnd(string expectredFirstTeam, string expectedSecondTeam)
         {
-            ScenarioContext.Current.Pending();
+            DetailMatchPage detailMatchPage = new DetailMatchPage(DriverInstance.Current);
+            Assert.AreEqual(expectredFirstTeam, detailMatchPage.GetActualFirstTeamOnMatchDetailPage());
+            Assert.AreEqual(expectedSecondTeam, detailMatchPage.GetActualSecondTeamOnMatchDetailPage());
         }
 
-        [Then(@"the score should be ""(.*)"",""(.*)""")]
-        public void ThenTheScoreShouldBe(int p0, int p1)
+
+        [Then(@"the score should be ""(.*)"" ""(.*)""")]
+        public void ThenTheScoreShouldBe(int numberOfGoalsScoredByTheFirstTeam, int numberOfGoalsScoredByTheSecondTeam)
         {
-            ScenarioContext.Current.Pending();
+            DetailMatchPage detailMatchPage = new DetailMatchPage(DriverInstance.Current);
+            Assert.AreEqual(numberOfGoalsScoredByTheFirstTeam, detailMatchPage.GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+            Assert.AreEqual(numberOfGoalsScoredByTheSecondTeam, detailMatchPage.GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
         }
 
     }

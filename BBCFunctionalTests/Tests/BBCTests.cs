@@ -132,23 +132,25 @@ namespace BBCFunctionalTests
         //{
         //    string dateOfMatch = "2020-02";
         //    string keyWordForSearchScottishChampionship = "Scottish Championship";
-        //    string expectredFirstTeam = "Alloa Athletic";
-        //    string expectedSecondTeam = "Ayr United";
-        //    string linkForNumberOfMatchScottishChampionship = "51595117";
+        //    string expectredFirstTeam = "Alloa";
+        //    string expectedSecondTeam = "Ayr";
+           
         //    Score score = new Score(0, 2);
 
         //    ScoreBoard board = new ScoreBoard(DriverInstance.Current);
         //    BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
         //    ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
-        //    businessLogicLayer.GoToTheFootballScoresAndFixtures()
-        //   .SendKeyWordForSearchChampionship(keyWordForSearchScottishChampionship).ClickOnButtonSearchOnScoresAndFixturesPage()
-        //   .ChoosePeriodMonthAndYear(dateOfMatch);
+        //    ScoresAndFixturesPage scoresAndFixturesPage = new ScoresAndFixturesPage(DriverInstance.Current);
+
+        //    businessLogicLayer.GoToTheFootballScoresAndFixtures();
+        //    scoresAndFixturesPage.SendKeyWordForSearchChampionship(keyWordForSearchScottishChampionship).ClickOnButtonSearchOnScoresAndFixturesPage();
+        //    championshipPage.ChoosePeriodMonthAndYear(dateOfMatch);
         //    Assert.AreEqual(board.GetScore(expectredFirstTeam, expectedSecondTeam), score);
 
-        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-        //    Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
-        //    Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualFirstTeamOnMatchDetailPage());
-        //    Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualSecondTeamOnMatchDetailPage());
+            //Assert.AreEqual(score.NumberOfGoalsScoredByTheFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+            //Assert.AreEqual(score.NumberOfGoalsScoredByTheSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+            //Assert.AreEqual(expectredFirstTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualFirstTeamOnMatchDetailPage());
+            //Assert.AreEqual(expectedSecondTeam, championshipPage.ClickLinkOfMatch(linkForNumberOfMatchScottishChampionship).GetActualSecondTeamOnMatchDetailPage());
         //}
         //[Test]
         //public void CheckThatTeamScoresDisplayCorrectlyChampionshipEuropaLeague()

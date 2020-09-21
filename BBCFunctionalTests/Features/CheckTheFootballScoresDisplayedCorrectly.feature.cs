@@ -113,17 +113,16 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("choose the period in which the match took place \"2020-02\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.Then("the score from which the teams \"Alloa Athletic\" and \"Ayr United\" played should be" +
-                        " \"0\" \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the score from which the teams \"Alloa\" and \"Ayr\" played should be \"0\" \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
- testRunner.And("go to page where the teams \"Alloa Athletic\" and \"Ayr United\" details of match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("go to page where the teams \"Alloa\" and \"Ayr\" details of match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.Then("the names of teams should be as expected \"Alloa Athletic\" and \"Ayr United\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.Then("the score should be \"0\",\"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the score should be \"0\" \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

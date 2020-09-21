@@ -52,7 +52,7 @@ namespace BBCFunctionalTests
         {
             //span[ starts-with( descendant-or-self::*/text(),'Ayr' ) ]//ancestor::a/article//span[contains(text(),'Alloa')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--home']//span[@class='sp-c-fixture__number sp-c-fixture__number--home sp-c-fixture__number--ft']
             WaitForLoad(DriverInstance.Current);
-            return int.Parse(DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + nameOfSecondTeam + "') ]//ancestor::a/article//span[contains(text(),'" + nameOfTheFirstTeam + "')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--home']")).Text);
+            return int.Parse(DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + nameOfSecondTeam + "') ]//ancestor::a/article//span[contains(text(),'" + nameOfTheFirstTeam + "')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--home']//span[@class='sp-c-fixture__number sp-c-fixture__number--home sp-c-fixture__number--ft']")).Text);
 
         }
 
@@ -61,12 +61,12 @@ namespace BBCFunctionalTests
             WaitForLoad(DriverInstance.Current);
             return int.Parse(DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + nameOfTheFirstTeam + "') ]//ancestor::a/article//span[contains(text(),'" + nameOfSecondTeam + "')]//ancestor::span[@class= 'sp-c-fixture__team sp-c-fixture__team--away']//span[@class='sp-c-fixture__number sp-c-fixture__number--away sp-c-fixture__number--ft']")).Text);
         }
-        public DetailMatchPage ClickLinkOfMatch(string firstTeam, string secondTeam) 
+        public void ClickLinkOfMatch(string firstTeam, string secondTeam) 
         {
             
             DriverInstance.Current.FindElement(By.XPath("//span[ starts-with( descendant-or-self::*/text(),'" + firstTeam + "' ) ]//ancestor::a/article//span[contains(text(),'" + secondTeam + "')]//ancestor::a")).Click();
             WaitForLoad(DriverInstance.Current);
-            return new DetailMatchPage(DriverInstance.Current);
+            
         }
        
 

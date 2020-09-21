@@ -38,27 +38,27 @@ namespace BBCFunctionalTests
 
         public Score GetScore(string team1, string team2)
         {
-            ImplicityWait(20);
+           
             IWebElement ActualFirstTeam = DriverInstance.Current.FindElement(By.XPath("//span[text()[contains(.,'" + team1 + "')]]"));
             IWebElement ActualSecondTeam = DriverInstance.Current.FindElement(By.XPath("//span[text()[contains(.,'" + team2 + "')]]"));
 
             ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
 
-            if (team1.Contains(ActualFirstTeam.Text) && team2.Contains(ActualSecondTeam.Text))
+            if (ActualFirstTeam.Text.Contains(team1) && (ActualSecondTeam.Text.Contains(team2)))
             {
 
                 return new Score(championshipPage.GetActualNumberOfGoalsScoredByTheFirstTeam(team1, team2), championshipPage.GetActualNumberOfGoalsScoredByTheSecondTeam(team1, team2));
 
-            }
+        }
             else
             {
-                WaitForLoad(DriverInstance.Current, 10);
+                
                 throw new ArgumentException("Please, Enter valid name of teams");
-            }
+    }
 
 
 
-        }
+}
 
     }
 
