@@ -75,14 +75,30 @@ namespace BBCFunctionalTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check that teams scores displays correctly in Scottish Championship")]
+        [NUnit.Framework.DescriptionAttribute("Check that teams scores displays correctly")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void CheckThatTeamsScoresDisplaysCorrectlyInScottishChampionship()
+        [NUnit.Framework.TestCaseAttribute("Scottish Championship", "2020-02", "Alloa Athletic", "Ayr United", "0", "2", null)]
+        [NUnit.Framework.TestCaseAttribute("Europa League", "2020-08", "The New Saints", "MSK Zilina", "3", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("Scottish League Cup", "2019-11", "Rangers", "Heart of Midlothian", "3", "0", null)]
+        [NUnit.Framework.TestCaseAttribute("Womens World Cup", "2019-07-07", "USA", "Netherlands", "2", "0", null)]
+        [NUnit.Framework.TestCaseAttribute("Club World Cup", "2019-12", "Liverpool", "Flamengo", "1", "0", null)]
+        public virtual void CheckThatTeamsScoresDisplaysCorrectly(string competition, string period, string firstTeam, string secondTeam, string numberOfGoalsScoredByThefirstTeam, string numberOfGoalsScoredByTheSecondTeam, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "mytag"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check that teams scores displays correctly in Scottish Championship", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("Competition", competition);
+            argumentsOfScenario.Add("Period", period);
+            argumentsOfScenario.Add("First team", firstTeam);
+            argumentsOfScenario.Add("Second team", secondTeam);
+            argumentsOfScenario.Add("Number of goals scored by Thefirst team", numberOfGoalsScoredByThefirstTeam);
+            argumentsOfScenario.Add("Number of goals scored by The second team", numberOfGoalsScoredByTheSecondTeam);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check that teams scores displays correctly", null, tagsOfScenario, argumentsOfScenario);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -107,22 +123,22 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("I go to the page where football scores and fixtures displays", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.And("choose competition \"Scottish Championship\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("choose competition {0}", competition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
- testRunner.And("choose the period in which the match took place \"2020-02\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("choose the period in which the match took place {0}", period), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.Then("the score from which the teams \"Alloa\" and \"Ayr\" played should be \"0\" \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the score from which the teams {0} and {1} played should be {2} {3}", firstTeam, secondTeam, numberOfGoalsScoredByThefirstTeam, numberOfGoalsScoredByTheSecondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 11
- testRunner.And("go to page where the teams \"Alloa\" and \"Ayr\" details of match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("go to page where the teams {0} and {1} details of match", firstTeam, secondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.Then("the names of teams should be as expected \"Alloa Athletic\" and \"Ayr United\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the names of teams should be as expected {0} and {1}", firstTeam, secondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.Then("the score should be \"0\" \"2\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the score should be {0} {1}", numberOfGoalsScoredByThefirstTeam, numberOfGoalsScoredByTheSecondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

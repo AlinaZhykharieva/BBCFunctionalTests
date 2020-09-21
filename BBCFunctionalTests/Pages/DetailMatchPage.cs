@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
+
 
 namespace BBCFunctionalTests
 {
@@ -11,16 +11,16 @@ namespace BBCFunctionalTests
 
         }
         [FindsBy(How = How.XPath, Using = "//span[@class='sp-c-fixture__number sp-c-fixture__number--home sp-c-fixture__number--ft']")]
-        private IWebElement ActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage;
+        private readonly IWebElement ActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage;
 
         [FindsBy(How = How.XPath, Using = "//span[@class='sp-c-fixture__number sp-c-fixture__number--away sp-c-fixture__number--ft']")]
-        private IWebElement ActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage;
+        private readonly IWebElement ActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage;
 
         [FindsBy(How = How.XPath, Using = "//span[@class= 'sp-c-fixture__team-name sp-c-fixture__team-name--home']/span")]
-        private IWebElement ActualFirstTeamOnMatchDetailPage;
+        private readonly IWebElement ActualFirstTeamOnMatchDetailPage;
 
         [FindsBy(How = How.XPath, Using = "//span[@class= 'sp-c-fixture__team-name sp-c-fixture__team-name--away']/span")]
-        private IWebElement ActualSecondTeamOnMatchDetailPage;
+        private readonly IWebElement ActualSecondTeamOnMatchDetailPage;
         public int GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage() 
         {
             return int.Parse(ActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage.Text);

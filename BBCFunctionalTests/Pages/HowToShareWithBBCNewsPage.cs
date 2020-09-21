@@ -12,12 +12,12 @@ namespace BBCFunctionalTests.Pages
 
         }
         [FindsBy(How = How.XPath, Using = "//div[@class= 'input-error-message']")]
-        IList<IWebElement> ListOfErrorMessages;
+        readonly IList<IWebElement> ListOfErrorMessages;
 
 
         public IList<IWebElement> GetListOfErrorMessages()
         {
-            WaitForLoad(DriverInstance.Current);
+            Utilities.Waits.WaitForLoad();
             return ListOfErrorMessages;
         }
     }

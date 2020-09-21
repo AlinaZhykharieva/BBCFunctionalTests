@@ -16,7 +16,7 @@ namespace BBCFunctionalTests.Steps
 
         }
 
-        [When(@"choose competition ""(.*)""")]
+        [When(@"choose competition (.*)")]
         public void WhenChooseCompetition(string keyWordForSearch)
         {
             ScoresAndFixturesPage scoresAndFixturesPage = new ScoresAndFixturesPage(DriverInstance.Current);
@@ -24,7 +24,7 @@ namespace BBCFunctionalTests.Steps
 
         }
 
-        [When(@"choose the period in which the match took place ""(.*)""")]
+        [When(@"choose the period in which the match took place (.*)")]
         public void WhenChooseThePeriodInWhichTheMatchTookPlace(string dateOfMatch)
         {
             ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
@@ -32,23 +32,24 @@ namespace BBCFunctionalTests.Steps
 
         }
 
-        [Then(@"the score from which the teams ""(.*)"" and ""(.*)"" played should be ""(.*)"" ""(.*)""")]
-        public void ThenTheScoreFromWhichTheTeamsAndPlayedShouldBe(string expectedFirstTeam, string expectedSecondTeam, Int32 scoreFirstTeam, Int32 scoreSecondTem )
+        [Then(@"the score from which the teams (.*) and (.*) played should be (.*) (.*)")]
+        public void ThenTheScoreFromWhichTheTeamsAndPlayedShouldBe(string expectedFirstTeam, string expectedSecondTeam, string scoreFirstTeam, string scoreSecondTem)
         {
+
             ScoreBoard scoreBoard = new ScoreBoard(DriverInstance.Current);
-            Score score = new Score(scoreFirstTeam, scoreSecondTem);
+            Score score = new Score(Int32.Parse(scoreFirstTeam), Int32.Parse(scoreSecondTem));
             Assert.AreEqual(scoreBoard.GetScore(expectedFirstTeam, expectedSecondTeam), score);
-           
+
         }
 
-        [Then(@"go to page where the teams ""(.*)"" and ""(.*)"" details of match")]
+        [Then(@"go to page where the teams (.*) and (.*) details of match")]
         public void ThenGoToPageWhereTheTeamsAndDetailsOfMatch(string actualFirstTeam, string actualSecondTeam)
         {
             ChampionshipPage championshipPage = new ChampionshipPage(DriverInstance.Current);
             championshipPage.ClickLinkOfMatch(actualFirstTeam, actualSecondTeam);
         }
 
-        [Then(@"the names of teams should be as expected ""(.*)"" and ""(.*)""")]
+        [Then(@"the names of teams should be as expected (.*) and (.*)")]
         public void ThenTheNamesOfTeamsShouldBeAsExpectedAnd(string expectredFirstTeam, string expectedSecondTeam)
         {
             DetailMatchPage detailMatchPage = new DetailMatchPage(DriverInstance.Current);
@@ -57,13 +58,19 @@ namespace BBCFunctionalTests.Steps
         }
 
 
-        [Then(@"the score should be ""(.*)"" ""(.*)""")]
-        public void ThenTheScoreShouldBe(int numberOfGoalsScoredByTheFirstTeam, int numberOfGoalsScoredByTheSecondTeam)
+        [Then(@"the score should be (.*) (.*)")]
+        public void ThenTheScoreShouldBe(string numberOfGoalsScoredByTheFirstTeam, string numberOfGoalsScoredByTheSecondTeam)
         {
             DetailMatchPage detailMatchPage = new DetailMatchPage(DriverInstance.Current);
-            Assert.AreEqual(numberOfGoalsScoredByTheFirstTeam, detailMatchPage.GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
-            Assert.AreEqual(numberOfGoalsScoredByTheSecondTeam, detailMatchPage.GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
+            Assert.AreEqual(Int32.Parse(numberOfGoalsScoredByTheFirstTeam), detailMatchPage.GetActualNumberOfGoalsScoredByTheFirstTeamOnMatchDetailPage());
+            Assert.AreEqual(Int32.Parse(numberOfGoalsScoredByTheSecondTeam), detailMatchPage.GetActualNumberOfGoalsScoredByTheSecondTeamOnMatchDetailPage());
         }
+
+
+
+
+
+
 
     }
 }

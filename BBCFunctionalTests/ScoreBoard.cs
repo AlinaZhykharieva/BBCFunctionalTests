@@ -1,5 +1,4 @@
-﻿
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using System;
 using SeleniumExtras.PageObjects;
 using BBCFunctionalTests.Driver;
@@ -49,16 +48,16 @@ namespace BBCFunctionalTests
 
                 return new Score(championshipPage.GetActualNumberOfGoalsScoredByTheFirstTeam(team1, team2), championshipPage.GetActualNumberOfGoalsScoredByTheSecondTeam(team1, team2));
 
-        }
+            }
             else
             {
                 
                 throw new ArgumentException("Please, Enter valid name of teams");
-    }
+            }
 
 
 
-}
+        }
 
     }
 

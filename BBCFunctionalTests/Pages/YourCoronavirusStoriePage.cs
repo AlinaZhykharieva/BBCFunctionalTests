@@ -13,12 +13,12 @@ namespace BBCFunctionalTests
 
         }
         [FindsBy(How = How.XPath, Using = "//h3[contains(text(), 'How to share')]/parent::a")]
-        private IWebElement LinkHowToShareWithBBCNews;
+        private readonly IWebElement LinkHowToShareWithBBCNews;
 
 
         public void ClickOnLinkHowToShareWithBBCNews() 
         {
-            WaitForLoad(DriverInstance.Current);
+            Utilities.Waits.WaitForLoad();
             LinkHowToShareWithBBCNews.Click();
            
         }

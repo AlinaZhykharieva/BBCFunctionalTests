@@ -18,17 +18,17 @@ namespace BBCFunctionalTests
         public IWebElement MenuSportInNavBar;
         public NewsPage ClickOnMenuNews()
         {
-            WaitForLoad(DriverInstance.Current, 15);
+            
             MenuNews.Click();
-            WaitForLoad(DriverInstance.Current, 15);
+            Utilities.Waits.WaitForLoad();
             return new NewsPage(DriverInstance.Current);
         }
 
         public SportPage ClickOnMenuSportInNavBar()
         {
-            WaitForLoad(DriverInstance.Current, 15);
+            Utilities.Waits.WaitForLoad();
             MenuSportInNavBar.Click();
-            WaitForLoad(DriverInstance.Current, 15);
+            Utilities.Waits.WaitForLoad();
             return new SportPage(DriverInstance.Current);
         }
 

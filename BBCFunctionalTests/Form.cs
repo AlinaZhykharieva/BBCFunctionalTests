@@ -1,9 +1,8 @@
 ﻿using BBCFunctionalTests.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using System;
 using System.Collections.Generic;
-using System.Text;
+
 
 namespace BBCFunctionalTests
 {
@@ -13,26 +12,12 @@ namespace BBCFunctionalTests
         {
 
         }
-        [FindsBy(How = How.XPath, Using = "//textarea[@aria-label= 'Tell us your story. ']")]
-        private IWebElement TextareaForStorie;
-
-        [FindsBy(How = How.XPath, Using = "//input[@aria-label='Name']")]
-        private IWebElement InputForName;
-
-        [FindsBy(How = How.XPath, Using = "//*[contains (text(), 'publish my name')]/ancestor::label/input")]
-        private IWebElement CheckboxPleaseDontPublishMyName;
-
-        [FindsBy(How = How.XPath, Using = "//*[contains (text(), 'Terms of Service')]/ancestor::label/input")]
-        private IWebElement CheckboxIAcceptTheTermsOfService;
-
-        [FindsBy(How = How.XPath, Using = "//*[contains (text(), 'I am over 16 years old')]/ancestor::label/input")]
-        private IWebElement CheckboxIamOver16YearsOld;
-
+        
         [FindsBy(How = How.XPath, Using = "  //button[@class='button']")]
-        private IWebElement ButtonSubmit;
+        private readonly IWebElement ButtonSubmit;
         public void FillForm(Dictionary<string, string> values)
         {
-            WaitForLoad(DriverInstance.Current);
+            Utilities.Waits.WaitForLoad();
             foreach (var pair in values) 
             {
                 IWebElement element = DriverInstance.Current.FindElement(By.XPath("//*[contains(@aria-label, '" + pair.Key + "')or (following-sibling::span//p[contains(text(), '" + pair.Key + "')])]"));
@@ -61,7 +46,7 @@ namespace BBCFunctionalTests
                    
             }
             ButtonSubmit.Click();
-            WaitForLoad(DriverInstance.Current);
+           
 
         }
 

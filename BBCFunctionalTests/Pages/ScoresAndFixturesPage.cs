@@ -13,17 +13,17 @@ namespace BBCFunctionalTests
         }
        
         [FindsBy(How = How.XPath, Using = "//input[@id='downshift-0-input']")]
-        private IWebElement InputFieldOnScoresAndFixturesPage;
+        private readonly IWebElement InputFieldOnScoresAndFixturesPage;
 
         [FindsBy(How = How.XPath, Using = "//a[@id='downshift-0-item-0']")]
-        private IWebElement ButtonSearchOnScoresAndFixturesPage;
+        private readonly IWebElement ButtonSearchOnScoresAndFixturesPage;
 
 
 
         public ScoresAndFixturesPage SendKeyWordForSearchChampionship(string keyWordForSearchChampionship) 
         {
             InputFieldOnScoresAndFixturesPage.SendKeys(keyWordForSearchChampionship);
-            WaitForLoad(DriverInstance.Current);
+            Utilities.Waits.WaitForLoad();
             return new ScoresAndFixturesPage(DriverInstance.Current);
         }
 
@@ -31,9 +31,9 @@ namespace BBCFunctionalTests
         public void ClickOnButtonSearchOnScoresAndFixturesPage()
         {
             ButtonSearchOnScoresAndFixturesPage.Click();
-            WaitForLoad(DriverInstance.Current, 30);
-          
-            
+            Utilities.Waits.WaitForLoad();
+
+
         }
 
 

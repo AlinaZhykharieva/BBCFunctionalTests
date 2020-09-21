@@ -11,7 +11,7 @@ namespace BBCFunctionalTests
 
         }
         [FindsBy(How = How.XPath, Using = "//ul[@class='css-1lb37cz-Stack e1y4nx260']/li[1]//a")]
-        private IWebElement TitleArticle;
+        private readonly IWebElement TitleArticle;
 
 
         public string GetTitleArticle()

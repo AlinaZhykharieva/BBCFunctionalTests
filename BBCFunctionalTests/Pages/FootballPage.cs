@@ -12,7 +12,7 @@ namespace BBCFunctionalTests
         }
 
         [FindsBy(How = How.XPath, Using = "//a[@data-stat-title='Scores & Fixtures']")]
-        private IWebElement MenuScoresAndFixturesOnFootballPage;
+        private readonly IWebElement MenuScoresAndFixturesOnFootballPage;
 
         public void ClickOnMenuScoresAndFixturesOnFootballPage()
         {
