@@ -11,8 +11,8 @@ namespace BBCFunctionalTests.Steps
         [When(@"I go to the page where football scores and fixtures displays")]
         public void WhenIGoToThePageWhereFootballScoresAndFixturesDisplays()
         {
-            BusinessLogicLayer businessLogicLayer = new BusinessLogicLayer();
-            businessLogicLayer.GoToHowToShareWithBBCNews();
+            HomePage homePage = new HomePage(DriverInstance.Current);
+            homePage.ClickOnMenuSportInNavBar().ClickOnButtonCloseOnPopUpWithProposeOfSabscription().ClickOnMenuFootball().ClickOnMenuScoresAndFixturesOnFootballPage();
 
         }
 

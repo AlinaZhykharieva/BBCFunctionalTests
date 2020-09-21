@@ -14,11 +14,11 @@ namespace BBCFunctionalTests
         [FindsBy(How = How.XPath, Using = "//a[@data-stat-title='Scores & Fixtures']")]
         private IWebElement MenuScoresAndFixturesOnFootballPage;
 
-        public ScoresAndFixturesPage ClickOnMenuScoresAndFixturesOnFootballPage()
+        public void ClickOnMenuScoresAndFixturesOnFootballPage()
         {
             MenuScoresAndFixturesOnFootballPage.Click();
-            WaitForLoad(DriverInstance.Current);
-            return new ScoresAndFixturesPage(DriverInstance.Current);
+            
+            
         }
 
     }

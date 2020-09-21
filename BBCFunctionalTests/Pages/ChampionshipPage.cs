@@ -1,8 +1,7 @@
 ﻿using BBCFunctionalTests.Driver;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-
-
+using System;
 
 namespace BBCFunctionalTests
 {
@@ -21,8 +20,15 @@ namespace BBCFunctionalTests
 
         public void ChoosePeriodMonthAndYear(string date) 
         {
-            DriverInstance.Current.FindElement(By.XPath("//a[contains(@href, '" + date + "')]")).Click();
-            WaitForLoad(DriverInstance.Current);
+            DateTime convertedDate = Convert.ToDateTime(date);
+            if (convertedDate < DateTime.Now)
+            {
+                DriverInstance.Current.FindElement(By.XPath("//a[contains(@href, '" + date + "')]")).Click();
+            }
+            else 
+            {
+                throw new ArgumentOutOfRangeException(date);
+            }
             
         }
 

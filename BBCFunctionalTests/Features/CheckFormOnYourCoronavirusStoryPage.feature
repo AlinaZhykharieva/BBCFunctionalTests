@@ -15,3 +15,4 @@ Scenario Outline: User can not submit a question to BBC with NameField blank
     | My story            |          | Yes                    | Yes          |
     |                     | Alina    | Yes                    | Yes          |
     | My story            | Alina    | Yes                    | No           |
+	| My story            | Alina    | No                     | Yes          |
