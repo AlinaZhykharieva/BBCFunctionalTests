@@ -5,6 +5,7 @@
 
 @negative
 Scenario Outline: User can not submit a question to BBC with NameField blank
+	Given I am on Home page
     When I go to the page where the form is located
 	And  I fill form with the data and send it to server
 	     |<Tell us your story.>| <Name> |<I am over 16 years old>| <I accept the>|

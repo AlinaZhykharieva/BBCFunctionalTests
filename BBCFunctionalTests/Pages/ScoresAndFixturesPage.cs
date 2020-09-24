@@ -1,4 +1,5 @@
 ﻿using BBCFunctionalTests.Driver;
+using BBCFunctionalTests.Utilities;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -23,7 +24,7 @@ namespace BBCFunctionalTests
         public ScoresAndFixturesPage SendKeyWordForSearchChampionship(string keyWordForSearchChampionship) 
         {
             InputFieldOnScoresAndFixturesPage.SendKeys(keyWordForSearchChampionship);
-            Utilities.Waits.WaitForLoad();
+            
             return new ScoresAndFixturesPage(DriverInstance.Current);
         }
 
@@ -31,7 +32,7 @@ namespace BBCFunctionalTests
         public void ClickOnButtonSearchOnScoresAndFixturesPage()
         {
             ButtonSearchOnScoresAndFixturesPage.Click();
-            Utilities.Waits.WaitForLoad();
+            Waits.WaitForLoad();
 
 
         }

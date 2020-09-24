@@ -20,13 +20,13 @@ namespace BBCFunctionalTests
         public FootballPage ClickOnMenuFootball() 
         {
             MenuFootball.Click();
-            Utilities.Waits.WaitForLoad();
+            
             return new FootballPage(DriverInstance.Current);
         }
         public SportPage ClickOnButtonCloseOnPopUpWithProposeOfSabscription()
         {
             ButtonCloseOnPopUpWithProposeOfSabscription.Click();
-            Utilities.Waits.WaitForLoad();
+           
             return new SportPage(DriverInstance.Current);
             
         }

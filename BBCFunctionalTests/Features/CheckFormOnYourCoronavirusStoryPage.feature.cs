@@ -118,6 +118,9 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
+ testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 9
     testRunner.When("I go to the page where the form is located", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -125,10 +128,10 @@ this.ScenarioInitialize(scenarioInfo);
                             string.Format("{0}", name),
                             string.Format("{0}", iAmOver16YearsOld),
                             string.Format("{0}", iAcceptThe)});
-#line 9
+#line 10
  testRunner.And("I fill form with the data and send it to server", ((string)(null)), table1, "And ");
 #line hidden
-#line 11
+#line 12
  testRunner.Then("error message are displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

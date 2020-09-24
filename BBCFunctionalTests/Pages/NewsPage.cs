@@ -1,5 +1,6 @@
 ﻿using BBCFunctionalTests.Driver;
 using BBCFunctionalTests.Pages;
+using BBCFunctionalTests.Utilities;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
@@ -60,9 +61,8 @@ namespace BBCFunctionalTests
 
         public void SendKeysInSearchInputOnNewsPage()
         {
-            Utilities.Waits.WaitForLoad();
+         
             SearchInputOnNewsPage.SendKeys(GetTagName());
-            Utilities.Waits.WaitForLoad();
             SearchButton.Click();
            
             
@@ -70,7 +70,6 @@ namespace BBCFunctionalTests
         
         public CoronavirusPage ClickOnMenuCoronavirus()
         {
-            Utilities.Waits.WaitForLoad();
             MenuCoronavirus.Click();
             return new CoronavirusPage(DriverInstance.Current);
         }

@@ -4,6 +4,7 @@
 
 @mytag
 Scenario Outline: Check that teams scores displays correctly
+	Given I am on Home page
 	When I go to the page where football scores and fixtures displays
 	And  choose competition <Competition>
 	And  choose the period in which the match took place <Period>

@@ -1,25 +1,22 @@
 ﻿using BBCFunctionalTests.Driver;
+using BBCFunctionalTests.Utilities;
 using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using System.Collections.Generic;
 
 
 namespace BBCFunctionalTests
 {
-    public class Form: BasePage
+    public class Form
     {
-        public Form(IWebDriver driver):base(driver)
-        {
-
-        }
         
-        [FindsBy(How = How.XPath, Using = "  //button[@class='button']")]
-        private readonly IWebElement ButtonSubmit;
         public void FillForm(Dictionary<string, string> values)
         {
-            Utilities.Waits.WaitForLoad();
+            IWebElement buttonSubmit = DriverInstance.Current.FindElement(By.XPath("//button[@class='button']"));
+
+            Waits.WaitForLoad();
             foreach (var pair in values) 
             {
+                
                 IWebElement element = DriverInstance.Current.FindElement(By.XPath("//*[contains(@aria-label, '" + pair.Key + "')or (following-sibling::span//p[contains(text(), '" + pair.Key + "')])]"));
                 if (element.TagName == "textarea")
                 {
@@ -45,7 +42,7 @@ namespace BBCFunctionalTests
                 }
                    
             }
-            ButtonSubmit.Click();
+            buttonSubmit.Click();
            
 
         }

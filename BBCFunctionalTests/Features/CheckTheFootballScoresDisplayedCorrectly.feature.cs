@@ -120,24 +120,27 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 7
- testRunner.When("I go to the page where football scores and fixtures displays", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I am on Home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 8
- testRunner.And(string.Format("choose competition {0}", competition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I go to the page where football scores and fixtures displays", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.And(string.Format("choose the period in which the match took place {0}", period), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("choose competition {0}", competition), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
- testRunner.Then(string.Format("the score from which the teams {0} and {1} played should be {2} {3}", firstTeam, secondTeam, numberOfGoalsScoredByThefirstTeam, numberOfGoalsScoredByTheSecondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("choose the period in which the match took place {0}", period), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
- testRunner.And(string.Format("go to page where the teams {0} and {1} details of match", firstTeam, secondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then(string.Format("the score from which the teams {0} and {1} played should be {2} {3}", firstTeam, secondTeam, numberOfGoalsScoredByThefirstTeam, numberOfGoalsScoredByTheSecondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.Then(string.Format("the names of teams should be as expected {0} and {1}", firstTeam, secondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And(string.Format("go to page where the teams {0} and {1} details of match", firstTeam, secondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
+ testRunner.Then(string.Format("the names of teams should be as expected {0} and {1}", firstTeam, secondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 14
  testRunner.Then(string.Format("the score should be {0} {1}", numberOfGoalsScoredByThefirstTeam, numberOfGoalsScoredByTheSecondTeam), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

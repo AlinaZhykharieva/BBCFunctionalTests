@@ -17,7 +17,7 @@ namespace BBCFunctionalTests.Pages
 
         public YourCoronavirusStoriePage ClickLinkYourCoronavirusStories() 
         {
-            Utilities.Waits.WaitForLoad();
+           
             LinkYourCoronavirusStories.Click();
             return new YourCoronavirusStoriePage(DriverInstance.Current);
         }

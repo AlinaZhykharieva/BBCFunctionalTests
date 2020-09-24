@@ -36,7 +36,7 @@ namespace BBCFunctionalTests.Steps
         public void ThenTheScoreFromWhichTheTeamsAndPlayedShouldBe(string expectedFirstTeam, string expectedSecondTeam, string scoreFirstTeam, string scoreSecondTem)
         {
 
-            ScoreBoard scoreBoard = new ScoreBoard(DriverInstance.Current);
+            ScoreBoard scoreBoard = new ScoreBoard();
             Score score = new Score(Int32.Parse(scoreFirstTeam), Int32.Parse(scoreSecondTem));
             Assert.AreEqual(scoreBoard.GetScore(expectedFirstTeam, expectedSecondTeam), score);
 

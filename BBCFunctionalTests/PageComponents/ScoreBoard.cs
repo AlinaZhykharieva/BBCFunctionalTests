@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using System;
-using SeleniumExtras.PageObjects;
 using BBCFunctionalTests.Driver;
 
 namespace BBCFunctionalTests
@@ -27,13 +26,8 @@ namespace BBCFunctionalTests
 
 
     }
-    public class ScoreBoard:BasePage
+    public class ScoreBoard
     {
-
-        public ScoreBoard(IWebDriver driver) : base(driver)
-        {
-
-        }
 
         public Score GetScore(string team1, string team2)
         {

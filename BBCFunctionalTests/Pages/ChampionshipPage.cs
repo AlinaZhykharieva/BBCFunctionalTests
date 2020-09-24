@@ -1,6 +1,5 @@
 ﻿using BBCFunctionalTests.Driver;
 using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using System;
 
 namespace BBCFunctionalTests
@@ -47,15 +46,6 @@ namespace BBCFunctionalTests
            
             
         }
-       
-
-
-
-
-
-
-
-
-
+      
     }
 }

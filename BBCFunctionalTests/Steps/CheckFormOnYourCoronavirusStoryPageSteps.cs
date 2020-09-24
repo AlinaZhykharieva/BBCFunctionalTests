@@ -11,6 +11,12 @@ namespace BBCFunctionalTests.Steps
     [Binding]
     public class CheckFormOnYourCoronavirusStoryPageSteps
     {
+        [Given(@"I am on Home page")]
+        public void GivenIAmOnHomePage()
+        {
+            
+        }
+
         [When(@"I go to the page where the form is located")]
         public void WhenIGoToThePageWhereTheFormIsLocated()
         {
@@ -24,7 +30,7 @@ namespace BBCFunctionalTests.Steps
         public void WhenIFillFormWithTheDataAndSendItToServer(Table table)
         {
             var storyToBBCWithNameFieldBlank = table.Rows.ToDictionary(r => r[0], r => r[1]);
-            Form form = new Form(DriverInstance.Current);
+            Form form = new Form();
             form.FillForm(storyToBBCWithNameFieldBlank);
         }
         

@@ -1,5 +1,4 @@
-﻿using BBCFunctionalTests.Driver;
-using BBCFunctionalTests.Pages;
+﻿
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
 
@@ -18,7 +17,7 @@ namespace BBCFunctionalTests
 
         public void ClickOnLinkHowToShareWithBBCNews() 
         {
-            Utilities.Waits.WaitForLoad();
+           
             LinkHowToShareWithBBCNews.Click();
            
         }
